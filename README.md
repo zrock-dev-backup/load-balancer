@@ -4,6 +4,13 @@ Nginx is an HTTP web server, reverse proxy, content cache, load balancer, TCP/UD
 
 ---
 
+## Dependencies 
+You must have [drill](https://github.com/fcsonline/drill) installed in order to run the tests
+
+```
+cargo install drill
+```
+
 ## Reproduction Steps
 
 1. Clone the repository:

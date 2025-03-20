@@ -4,15 +4,16 @@ import './App.css'
 function App() {
   const [serverInfo, setServerInfo] = useState({
     hostname: 'Loading...',
-    talk: 'Loading...'
+    message: 'Loading...'
   });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const PORT = 3000
 
   useEffect(() => {
     const fetchData = () => {
       setLoading(true);
-      fetch('http://localhost:3000/ping')
+      fetch(`http://localhost:${PORT}/ping`)
         .then(response => {
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -25,7 +26,7 @@ function App() {
         })
         .catch(error => {
           console.error('Error fetching server info:', error);
-          setError('Error conectando al servidor');
+          setError("Couldn't connect to server");
         })
         .finally(() => {
           setLoading(false);

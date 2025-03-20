@@ -1,13 +1,13 @@
 services:
-  #frontend:
-  #  image: lab/frontend
-  #  build:
-  #    context: ./frontend
-  #    dockerfile: Dockerfile
-  #  ports:
-  #    - "5173:5173"
-  #  depends_on:
-  #    - backend-loadbalancer
+  frontend:
+   image: lab/frontend
+   build:
+     context: ./frontend
+     dockerfile: Dockerfile
+   environment:
+     - PORT=3000
+   ports:
+     - "8080:5000"
 
   loadbalancer:
     image: nginx:1.27.4-alpine3.21
